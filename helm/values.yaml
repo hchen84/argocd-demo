@@ -1,21 +1,21 @@
 namespace:
-  name: test
+  name: demo
+ 
+service:
+  port: 8111
+  type: ClusterIP
+
 image:
   repository: nginx 
   tag: alpine
   pullPolicy: IfNotPresent
-resources: 
-  requests:
-    memory: 256Mi
-    cpu: 50m
-  limits:
-    cpu: 100m
-    memory: 512Mi
-service:
-  # server.service.type is the GoCD Server service type
-  type: "ClusterIP"
-  # server.service.httpPort is the GoCD Server HTTP port
-  Port: 8111
-configmap:
-    version: alpine
+
 replicaCount: 3
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 256Mi
+
+configmap:
+  data: "version: alpine"

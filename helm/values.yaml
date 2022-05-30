@@ -13,9 +13,9 @@ resources:
     memory: 512Mi
 service:
   # server.service.type is the GoCD Server service type
-  type: "NodePort"
+  type: "ClusterIP"
   # server.service.httpPort is the GoCD Server HTTP port
-  httpPort: 8111
+  Port: 8111
 configmap:
     version: alpine
 replicaCount: 3

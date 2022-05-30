@@ -1,0 +1,21 @@
+namespace:
+  name: test
+image:
+  repository: nginx 
+  tag: alpine
+  pullPolicy: IfNotPresent
+resources: 
+  requests:
+    memory: 256Mi
+    cpu: 50m
+  limits:
+    cpu: 100m
+    memory: 512Mi
+service:
+  # server.service.type is the GoCD Server service type
+  type: "NodePort"
+  # server.service.httpPort is the GoCD Server HTTP port
+  httpPort: 8111
+configmap:
+    version: alpine
+replicaCount: 3
